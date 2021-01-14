@@ -21,6 +21,7 @@ const JobBoardComponent = ({job:
     handletagClick,
 }) => {
     const tags = [];
+    console.log("adfa");
 
     if(category){
         tags.push(...category);
