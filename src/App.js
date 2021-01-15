@@ -1,27 +1,22 @@
 import React, {useState, useEffect } from 'react';
-import {Row, Col, Container} from 'reactstrap';
 import data from './assets/data.json';
 import JobBoardComponent from './components/JobBoardComponent';
-//import Columns from 'react-columns';
-//import {Grid, Row, Col} from 'react-bootstrap';
-
-var Columns = require('react-columns');
 
 function App() {
   const [jobs, setJobs] = useState([]);
-  const[filters, setFilters] = useState(['CSS']);
+  const [filters, setFilters] = useState([]);
   
   useEffect(() => setJobs(data), []);
 
-  const filterFunc = ({role, level, tools, languages}) => {
+  const filterFunc = ({category}) => {
     if(filters.length===0){
       return true;
     }
 
-    const tags = [role, level];
+    const tags = [];
 
-    if(languages){
-        tags.push(...languages);
+    if(category){
+        tags.push(...category);
     }
 
     // return tags.some(tag => filters.includes(tag));
@@ -29,7 +24,7 @@ function App() {
   }
 
   const handletagClick = (tag) => {
-    // avoid reading tag
+    // avoid re-adding tag
     if(filters.includes(tag)) return;
 
     setFilters([...filters, tag]);
@@ -49,6 +44,7 @@ function App() {
     <>
      <header className="bg-teal-500 mb-12">
        <img src="/images/bg-header-desktop.svg" alt="bg-image" />
+       console.log("adafdsf");
      </header>
 
      <div className="container">
@@ -72,32 +68,15 @@ function App() {
          <p>Jobs are fetching...</p>
        ) : (
          filteredJobs.map(job => (
-          <Container>
-            <Row>
-              <Col>
-                <JobBoardComponent 
-                job={job} 
-                key={job.id} 
-                handletagClick={handletagClick}/>
-              </Col>
-              <Col>
-                <JobBoardComponent 
-                job={job} 
-                key={job.id} 
-                handletagClick={handletagClick}/>
-              </Col>
-            </Row>
-          </Container>
-            
-         
+          <JobBoardComponent
+          job={job} 
+          key={job.id} 
+          handletagClick={handletagClick}/>         
          ))
        )
      }     
      </div>
-
     </>
-
-    
   );
 }
 

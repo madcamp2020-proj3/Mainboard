@@ -8,10 +8,15 @@
     "@testing-library/user-event": "^12.6.0",
     "bootstrap": "^4.5.3",
     "css-loader": "^5.0.1",
+    "jquery": "^3.5.1",
+    "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-columns": "^1.2.1",
     "react-dom": "^17.0.1",
+    "react-floating-action-button": "^1.0.5",
+    "react-floating-button": "^1.1.1",
+    "react-icons": "^4.1.0",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.8.1",
     "reat": "0.0.1-security",
@@ -46,5 +51,13 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madcamp2020-proj3/Mainboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madcamp2020-proj3/Mainboard/issues"
+  },
+  "homepage": "https://github.com/madcamp2020-proj3/Mainboard#readme"
 }
