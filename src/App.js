@@ -1,27 +1,38 @@
 import React, {useState, useEffect } from 'react';
-import {Row, Col, Container} from 'reactstrap';
 import data from './assets/data.json';
 import JobBoardComponent from './components/JobBoardComponent';
-//import Columns from 'react-columns';
-//import {Grid, Row, Col} from 'react-bootstrap';
+import { Container, Button, lightColors, darkColors } from 'react-floating-action-button'
+import { FaPlus } from 'react-icons/fa';
+import Modal from './components/Modal/CreateChatModal';
+// import Modal from 'react-modal';
 
-var Columns = require('react-columns');
+// Modal.setAppElement("#root");
 
 function App() {
+  const [ modalOpen, setModalOpen ] = useState(false);
+
+  const openModal = () => {
+      setModalOpen(true);
+  }
+  const closeModal = () => {
+      setModalOpen(false);
+  }
+
   const [jobs, setJobs] = useState([]);
-  const[filters, setFilters] = useState(['CSS']);
+  const [filters, setFilters] = useState([]);
+ 
   
   useEffect(() => setJobs(data), []);
 
-  const filterFunc = ({role, level, tools, languages}) => {
+  const filterFunc = ({category}) => {
     if(filters.length===0){
       return true;
     }
 
-    const tags = [role, level];
+    const tags = [];
 
-    if(languages){
-        tags.push(...languages);
+    if(category){
+        tags.push(...category);
     }
 
     // return tags.some(tag => filters.includes(tag));
@@ -29,7 +40,7 @@ function App() {
   }
 
   const handletagClick = (tag) => {
-    // avoid reading tag
+    // avoid re-adding tag
     if(filters.includes(tag)) return;
 
     setFilters([...filters, tag]);
@@ -72,32 +83,36 @@ function App() {
          <p>Jobs are fetching...</p>
        ) : (
          filteredJobs.map(job => (
-          <Container>
-            <Row>
-              <Col>
-                <JobBoardComponent 
-                job={job} 
-                key={job.id} 
-                handletagClick={handletagClick}/>
-              </Col>
-              <Col>
-                <JobBoardComponent 
-                job={job} 
-                key={job.id} 
-                handletagClick={handletagClick}/>
-              </Col>
-            </Row>
-          </Container>
-            
-         
+          <JobBoardComponent
+          job={job} 
+          key={job.id} 
+          handletagClick={handletagClick}/>         
          ))
        )
-     }     
+     } 
+
+    <div>
+
+    <Container>
+      {/* <Button
+        type="button"
+        tooltip="Open Modal"
+        styles={{backgroundColor: darkColors.lighterRed, color: lightColors.white}}
+        onClick={openModal}>
+          <FaPlus />
+        </Button> */}
+        <button type="button" onClick={openModal} className="rounded-full border border-gray-100 bg-red-500 p-6 text-lg"> <FaPlus /></button>
+      
+        <Modal open={ modalOpen } close={ closeModal } header="새로운 채팅방 만들기">
+        리액트 함수형 모달 팝업창입니다.
+        쉽게 만들 수 있어요. 
+        같이 만들어봐요!
+        </Modal>
+
+    </Container>
+    </div>
      </div>
-
     </>
-
-    
   );
 }
 
