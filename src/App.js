@@ -1,10 +1,26 @@
 import React, {useState, useEffect } from 'react';
 import data from './assets/data.json';
 import JobBoardComponent from './components/JobBoardComponent';
+import { Container, Button, lightColors, darkColors } from 'react-floating-action-button'
+import { FaPlus } from 'react-icons/fa';
+import Modal from './components/Modal/CreateChatModal';
+// import Modal from 'react-modal';
+
+// Modal.setAppElement("#root");
 
 function App() {
+  const [ modalOpen, setModalOpen ] = useState(false);
+
+  const openModal = () => {
+      setModalOpen(true);
+  }
+  const closeModal = () => {
+      setModalOpen(false);
+  }
+
   const [jobs, setJobs] = useState([]);
   const [filters, setFilters] = useState([]);
+ 
   
   useEffect(() => setJobs(data), []);
 
@@ -44,7 +60,6 @@ function App() {
     <>
      <header className="bg-teal-500 mb-12">
        <img src="/images/bg-header-desktop.svg" alt="bg-image" />
-       console.log("adafdsf");
      </header>
 
      <div className="container">
@@ -74,7 +89,28 @@ function App() {
           handletagClick={handletagClick}/>         
          ))
        )
-     }     
+     } 
+
+    <div>
+
+    <Container>
+      {/* <Button
+        type="button"
+        tooltip="Open Modal"
+        styles={{backgroundColor: darkColors.lighterRed, color: lightColors.white}}
+        onClick={openModal}>
+          <FaPlus />
+        </Button> */}
+        <button type="button" onClick={openModal} className="rounded-full border border-gray-100 bg-red-500 p-6 text-lg"> <FaPlus /></button>
+      
+        <Modal open={ modalOpen } close={ closeModal } header="새로운 채팅방 만들기">
+        리액트 함수형 모달 팝업창입니다.
+        쉽게 만들 수 있어요. 
+        같이 만들어봐요!
+        </Modal>
+
+    </Container>
+    </div>
      </div>
     </>
   );
