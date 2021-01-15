@@ -56,8 +56,8 @@ function App() {
 
   return (
     <>
-     <header className="bg-teal-500 mb-12">
-       <img src="/images/bg-header-desktop.svg" alt="bg-image" />
+     <header className="mb-12 p-20 text-xl font-bold" style={{backgroundColor: '#B8B8FF'}}>
+      하마하마
      </header>
 
      <div className="container">
