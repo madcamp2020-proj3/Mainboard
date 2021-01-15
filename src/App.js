@@ -10,7 +10,6 @@ import Modal from './components/Modal/CreateChatModal';
 
 function App() {
   const [ modalOpen, setModalOpen ] = useState(false);
-
   const openModal = () => {
       setModalOpen(true);
   }
@@ -21,7 +20,6 @@ function App() {
   const [jobs, setJobs] = useState([]);
   const [filters, setFilters] = useState([]);
  
-  
   useEffect(() => setJobs(data), []);
 
   const filterFunc = ({category}) => {
@@ -104,9 +102,6 @@ function App() {
         <button type="button" onClick={openModal} className="rounded-full border border-gray-100 bg-red-500 p-6 text-lg"> <FaPlus /></button>
       
         <Modal open={ modalOpen } close={ closeModal } header="새로운 채팅방 만들기">
-        리액트 함수형 모달 팝업창입니다.
-        쉽게 만들 수 있어요. 
-        같이 만들어봐요!
         </Modal>
 
     </Container>
