@@ -56,23 +56,23 @@ function App() {
 
   return (
     <>
-     <header className="mb-12 p-20 text-xl font-bold" style={{backgroundColor: '#B8B8FF'}}>
-      하마하마
+     <header className="mb-8 p-20 bg-white">
+        <div className="text-6xl ml-16 text-blue-500 font-bold" style={{color:"#0080ff"}}>Syno</div>
+        <button className="text-lg text-white font-bold float-right py-2 px-3 border border-solid border-indigo-500 rounded" style={{backgroundColor:"#0080ff"}}>Logout</button>
      </header>
 
      <div className="container">
-
       {filters.length > 0 && (
       <div className={`flex bg-white shdow-md -my-16 mb-20 mx-10 p-6 rounded z-10 relative`}>
         {filters.map((filter) => (
-        <span className="cursor-pointer mr-4 mb-4 rounded font-bold text-teal-500 bg-teal-100 p-2 sm:mb-0"
+        <span className="cursor-pointer mr-4 mb-4 rounded font-bold text-indigo-500 bg-indigo-100 p-2 sm:mb-0"
           onClick={() => handleFilterClick(filter)}>
             <span
             className=''>x {filter}
             </span>
         </span>
         ))}
-        <button onClick={clearFilters} className="font-bold text-gray-700 ml-auto">Clear</button>
+        <button onClick={clearFilters} className="font-bold text-gray-700 ml-auto border border-solid">Clear</button>
       </div>
     )}
 
@@ -92,17 +92,10 @@ function App() {
     <div>
 
     <Container>
-      {/* <Button
-        type="button"
-        tooltip="Open Modal"
-        styles={{backgroundColor: darkColors.lighterRed, color: lightColors.white}}
-        onClick={openModal}>
-          <FaPlus />
-        </Button> */}
-        <button type="button" onClick={openModal} className="rounded-full border border-gray-100 bg-red-500 p-6 text-lg"> <FaPlus /></button>
-      
-        <Modal open={ modalOpen } close={ closeModal } header="새로운 채팅방 만들기">
-        </Modal>
+      <button type="button" style={{backgroundColor:"#0080ff"}} nClick={openModal} className="text-white rounded-full border border-gray-100 bg-blue-500 p-6 text-lg"> <FaPlus /></button>
+    
+      <Modal open={ modalOpen } close={ closeModal } header="새로운 채팅방 만들기" >
+      </Modal>
 
     </Container>
     </div>

@@ -13,6 +13,7 @@
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
+    "react-bootstrap-select": "^0.14.0",
     "react-columns": "^1.2.1",
     "react-datepicker": "^3.4.1",
     "react-dom": "^17.0.1",
@@ -54,5 +55,10 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
+  }
 }

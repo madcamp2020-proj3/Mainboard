@@ -63,18 +63,22 @@ const Modal = ( props ) => {
             </div> */}
 
             <div class="form-group">
-            <label>날짜:</label>
+            
             <Row>
               <Col>
+              <label>시작 날짜:</label>
             <DatePicker
               selected={startDate}
               onChange={date => setStartDate(date)}
               selectsStart
               startDate={startDate}
               endDate={endDate}
-              /></Col>
+              inline="true"
+              />
+              </Col>
 
               <Col>
+              <label>마감 날짜:</label>
             <DatePicker
               selected={endDate}
               onChange={date => setEndDate(date)}
@@ -82,6 +86,7 @@ const Modal = ( props ) => {
               startDate={startDate}
               endDate={endDate}
               minDate={startDate}
+              inline="true"
               /></Col>
               </Row>
             </div>

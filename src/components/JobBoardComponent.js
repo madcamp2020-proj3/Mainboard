@@ -12,7 +12,7 @@ const JobBoardComponent = ({job:
 
     return(
     <div className= {`flex flex-col bg-white shadow-md my-16 mx-10 p-6 rounded ${
-        isNew && 'border-l-4 border-teal-500 border-solid'} sm:flex-row sm:my-8`}>
+        isNew && 'border-l-4 border-indigo-200 border-solid'} sm:flex-row sm:my-8`}>
         <div className="flex flex-col justify-between">
             <img 
                 className="-mt-16 mb-4 w-20 h-20 sm:h-24 sm:w-24 sm:my-0" 
@@ -26,10 +26,10 @@ const JobBoardComponent = ({job:
         </div>
 
         <div className="flex flex-col justify-between ml-4">
-            <h3 className="text-lg font-bold text-teal-500 my-2">
+            <h3 className="text-lg font-bold text-indigo-500 my-2">
                 {location}
                 {isNew && (
-                    <span className="bg-teal-500 text-teal-100 font-bold m-2 py-1 px-2 rounded-full uppercase text-sm">
+                    <span className="bg-indigo-500 text-indigo-100 font-bold m-2 py-1 px-2 rounded-full uppercase text-sm">
                         New
                     </span>
                 )}
@@ -50,7 +50,7 @@ const JobBoardComponent = ({job:
             {tags ? tags.map((tag) => (
                 <span 
                     onClick={() => handletagClick(tag)}
-                    className="cursor-pointer text-teal-500 bg-teal-100 font-bold ml-4 mb-4 p-2 rounded sm:mb-0 text-lg">
+                    className="cursor-pointer text-indigo-500 bg-indigo-100 font-bold ml-4 mb-4 p-2 rounded sm:mb-0 text-lg">
                     {tag}
                 </span>
             ))
